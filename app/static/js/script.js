@@ -173,3 +173,23 @@ async function getBlobFromAudioPreview(audioUrl) {
     const response = await fetch(audioUrl);
     return await response.blob();
 }
+document.getElementById('resetButton').addEventListener('click', function() {
+    // Reset form fields
+    document.getElementById('uploadForm').reset();
+
+    // Clear audio preview
+    document.getElementById('audioPreview').src = '';
+
+    // Clear transcription and sentiment results
+    document.getElementById('transcriptionResult').innerHTML = '';
+    document.getElementById('sentimentResult').innerHTML = '';
+    document.getElementById('translateResult').innerHTML = '';
+
+    // Disable buttons
+    document.getElementById('submitButton').disabled = true;
+    document.getElementById('transcribeButton').disabled = true;
+    document.getElementById('analyzeButton').disabled = true;
+    document.getElementById('translateButton').disabled = true;
+
+    // Optionally reset any other states
+});
